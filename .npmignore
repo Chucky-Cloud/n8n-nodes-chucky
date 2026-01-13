@@ -1,0 +1,17 @@
+# Source files (dist is published)
+nodes/
+credentials/
+tsconfig.json
+
+# Dev files
+.gitignore
+.claude/
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# Test
+coverage/
+*.test.ts

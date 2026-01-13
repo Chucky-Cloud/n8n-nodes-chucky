@@ -1,0 +1,59 @@
+{
+  "name": "n8n-nodes-chucky",
+  "version": "0.1.0",
+  "description": "n8n community node for Chucky - run Claude AI agents in the cloud",
+  "keywords": [
+    "n8n-community-node-package",
+    "n8n",
+    "chucky",
+    "ai",
+    "claude",
+    "agent",
+    "automation",
+    "workflow"
+  ],
+  "license": "MIT",
+  "homepage": "https://chucky.cloud",
+  "author": {
+    "name": "Chucky",
+    "email": "hello@chucky.cloud"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chucky-cloud/n8n-nodes-chucky.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chucky-cloud/n8n-nodes-chucky/issues"
+  },
+  "engines": {
+    "node": ">=20.0"
+  },
+  "main": "dist/nodes/ChuckyJob/ChuckyJob.node.js",
+  "scripts": {
+    "build": "n8n-node build",
+    "dev": "n8n-node dev",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/ChuckyApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/ChuckyJob/ChuckyJob.node.js"
+    ]
+  },
+  "devDependencies": {
+    "@n8n/node-cli": "^0.1.0",
+    "@types/node": "^20.0.0",
+    "eslint": "^9.0.0",
+    "typescript": "^5.0.0"
+  },
+  "peerDependencies": {
+    "n8n-workflow": "*"
+  }
+}
