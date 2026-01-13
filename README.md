@@ -2,7 +2,7 @@
 
 Run **Claude Code** (Anthropic's agentic AI) directly in your n8n workflows.
 
-This is an n8n community node for [Chucky](https://chucky.cloud) - the platform that lets you run AI agents in the cloud with full tool access (file system, bash, web browsing, and more).
+This is an n8n community node for [Chucky](https://chucky.cloud) - the platform that lets you run Claude Code agents in the cloud with full tool access (file system, bash, web browsing, and more).
 
 ## Why use this?
 
