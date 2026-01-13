@@ -1,6 +1,6 @@
 {
   "name": "@chucky.cloud/n8n-nodes-chucky",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "n8n community node for Chucky - run Claude Code agents in the cloud",
   "keywords": [
     "n8n-community-node-package",
