@@ -12,14 +12,14 @@ Create and manage background AI agent jobs directly from your n8n workflows.
 
 1. Go to **Settings > Community Nodes**
 2. Select **Install**
-3. Enter `n8n-nodes-chucky`
+3. Enter `@chucky.cloud/n8n-nodes-chucky`
 4. Click **Install**
 
 ### Manual Installation
 
 ```bash
 cd ~/.n8n/nodes
-npm install n8n-nodes-chucky
+npm install @chucky.cloud/n8n-nodes-chucky
 ```
 
 ## Credentials
