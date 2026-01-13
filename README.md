@@ -1,8 +1,16 @@
 # n8n-nodes-chucky
 
-This is an n8n community node for [Chucky](https://chucky.cloud) - the AI agent platform that lets you run Claude agents in the cloud.
+Run **Claude Code** (Anthropic's agentic AI) directly in your n8n workflows.
 
-Create and manage background AI agent jobs directly from your n8n workflows.
+This is an n8n community node for [Chucky](https://chucky.cloud) - the platform that lets you run AI agents in the cloud with full tool access (file system, bash, web browsing, and more).
+
+## Why use this?
+
+- **Claude Code in n8n** - Run the same powerful AI agent that powers Claude's computer use
+- **Multi-model support** - Use Claude (Sonnet, Opus, Haiku), OpenAI models, or any OpenRouter model
+- **Full agent capabilities** - File operations, code execution, web browsing, and custom tools
+- **Background jobs** - Long-running tasks that don't block your workflow
+- **Structured output** - Get validated JSON responses with schema enforcement
 
 [n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
@@ -45,7 +53,7 @@ Creates a new background AI agent job.
 | **Wait for Completion** | Poll until job finishes (default: true) |
 
 **Model Options:**
-- Model (Sonnet 4.5, Opus 4.5, Haiku 3.5, or custom)
+- Model: Claude Sonnet 4.5, Opus 4.5, Haiku 3.5, or custom (OpenAI, OpenRouter)
 - System Prompt
 - Max Turns
 - Output Format (JSON Schema for structured output)

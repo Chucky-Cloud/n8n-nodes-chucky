@@ -15,3 +15,6 @@ tsconfig.json
 # Test
 coverage/
 *.test.ts
+
+# Extra files in dist
+dist/node_modules/
