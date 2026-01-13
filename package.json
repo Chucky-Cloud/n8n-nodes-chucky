@@ -1,6 +1,6 @@
 {
   "name": "@chucky.cloud/n8n-nodes-chucky",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "n8n community node for Chucky - run Claude Code agents in the cloud",
   "keywords": [
     "n8n-community-node-package",
@@ -20,10 +20,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chucky-cloud/n8n-nodes-chucky.git"
+    "url": "git+https://github.com/Chucky-Cloud/n8n-nodes-chucky.git"
   },
   "bugs": {
-    "url": "https://github.com/chucky-cloud/n8n-nodes-chucky/issues"
+    "url": "https://github.com/Chucky-Cloud/n8n-nodes-chucky/issues"
   },
   "engines": {
     "node": ">=20.0"
