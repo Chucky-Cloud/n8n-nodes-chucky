@@ -1,7 +1,7 @@
 {
   "name": "@chucky.cloud/n8n-nodes-chucky",
   "version": "0.1.0",
-  "description": "n8n community node for Chucky - run Claude AI agents in the cloud",
+  "description": "n8n community node for Chucky - run Claude Code agents in the cloud",
   "keywords": [
     "n8n-community-node-package",
     "n8n",
