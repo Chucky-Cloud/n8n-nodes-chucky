@@ -9,6 +9,7 @@ import {
   INodePropertyOptions,
 } from 'n8n-workflow';
 import * as crypto from 'crypto';
+import { createToken, createBudget } from '@chucky.cloud/sdk';
 
 // Hardcoded URLs
 const PORTAL_URL = 'https://doting-hornet-490.convex.site';
@@ -62,48 +63,6 @@ interface Project {
   name: string;
   description?: string;
   isActive: boolean;
-}
-
-/**
- * Generate a JWT token for Chucky authentication
- */
-function generateToken(options: {
-  projectId: string;
-  hmacSecret: string;
-  userId?: string;
-  expiresInSeconds?: number;
-  budget?: {
-    ai?: number;
-    compute?: number;
-    window?: string;
-  };
-}): string {
-  const now = Math.floor(Date.now() / 1000);
-  const exp = now + (options.expiresInSeconds || 3600);
-
-  const payload = {
-    sub: options.userId || 'n8n-workflow',
-    iss: options.projectId,
-    iat: now,
-    exp,
-    budget: {
-      ai: options.budget?.ai || 100000000, // $100 default
-      compute: options.budget?.compute || 360000, // 100 hours
-      window: options.budget?.window || 'day',
-      windowStart: new Date().toISOString(),
-    },
-  };
-
-  // Create JWT
-  const header = { alg: 'HS256', typ: 'JWT' };
-  const headerB64 = Buffer.from(JSON.stringify(header)).toString('base64url');
-  const payloadB64 = Buffer.from(JSON.stringify(payload)).toString('base64url');
-  const signature = crypto
-    .createHmac('sha256', options.hmacSecret)
-    .update(`${headerB64}.${payloadB64}`)
-    .digest('base64url');
-
-  return `${headerB64}.${payloadB64}.${signature}`;
 }
 
 export class ChuckyJob implements INodeType {
@@ -630,17 +589,17 @@ async function createJob(
   // Fetch HMAC key from portal API
   const hmacSecret = await getHmacKey(this, projectId, apiKey);
 
-  // Generate JWT token
-  const token = generateToken({
-    projectId,
-    hmacSecret,
+  // Generate JWT token using chucky-sdk
+  const token = await createToken({
     userId: advancedOptions.userId || 'n8n-workflow',
-    expiresInSeconds: 3600,
-    budget: {
-      ai: (advancedOptions.aiBudget || 10) * 1000000, // Convert to microdollars
-      compute: (advancedOptions.computeBudget || 1) * 3600, // Convert to seconds
+    projectId,
+    secret: hmacSecret,
+    expiresIn: 3600,
+    budget: createBudget({
+      aiDollars: advancedOptions.aiBudget || 10,
+      computeHours: advancedOptions.computeBudget || 1,
       window: 'day',
-    },
+    }),
   });
 
   // Use custom idempotency key or generate one

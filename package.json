@@ -55,5 +55,8 @@
   },
   "peerDependencies": {
     "n8n-workflow": "*"
+  },
+  "dependencies": {
+    "@chucky.cloud/sdk": "^0.3.0"
   }
 }
